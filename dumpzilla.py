@@ -2693,7 +2693,7 @@ if __name__ == '__main__':
     _locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
     app = Dumpzilla(sys.argv)
     if os.name == "nt":
-    _locale._getdefaultlocale = _locale._gdl_bak
+         _locale._getdefaultlocale = _locale._gdl_bak
     #_locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
 
 # Site: www.dumpzilla.org
