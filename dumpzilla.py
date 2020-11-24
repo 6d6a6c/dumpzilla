@@ -654,13 +654,13 @@ class Dumpzilla():
           conn.create_function("REGEXP", 2, self.regexp)
 
        cursor = conn.cursor()
-       sqlite_query = "select baseDomain, name, value, host, path, datetime(expiry, 'unixepoch', 'localtime'), datetime(lastAccessed/1000000,'unixepoch','localtime') as last ,datetime(creationTime/1000000,'unixepoch','localtime') as creat, isSecure, isHttpOnly FROM moz_cookies"
+       sqlite_query = "select name, value, host, path, datetime(expiry, 'unixepoch', 'localtime'), datetime(lastAccessed/1000000,'unixepoch','localtime') as last ,datetime(creationTime/1000000,'unixepoch','localtime') as creat, isSecure, isHttpOnly FROM moz_cookies"
        self.execute_query(cursor,sqlite_query,self.cookie_filters)
 
        _extraction_list = []
        for row in cursor:
           _extraction_dict = {}
-          _extraction_dict['0-Domain'] = self.decode_reg(row[0])
+          #_extraction_dict['0-Domain'] = self.decode_reg(row[0])
           _extraction_dict['1-Host'] = self.decode_reg(row[3])
           _extraction_dict['2-Name'] = self.decode_reg(row[1])
           _extraction_dict['3-Value'] = self.decode_reg(row[2])
