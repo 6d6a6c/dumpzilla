@@ -660,7 +660,7 @@ class Dumpzilla():
        _extraction_list = []
        for row in cursor:
           _extraction_dict = {}
-          #_extraction_dict['0-Domain'] = self.decode_reg(row[0])
+          _extraction_dict['0-Domain'] = ''
           _extraction_dict['1-Host'] = self.decode_reg(row[3])
           _extraction_dict['2-Name'] = self.decode_reg(row[1])
           _extraction_dict['3-Value'] = self.decode_reg(row[2])
