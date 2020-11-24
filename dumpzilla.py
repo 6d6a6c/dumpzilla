@@ -2685,8 +2685,9 @@ Profile location:
             self.show_help()
             sys.exit()
 
+
+import _locale
 if __name__ == '__main__':
-    import _locale
     _locale._gdl_bak = _locale._getdefaultlocale
     print(_locale._gdl_bak)
     _locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
