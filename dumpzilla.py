@@ -2686,7 +2686,6 @@ Profile location:
             sys.exit()
 
 if __name__ == '__main__':
-    #if os.name == "nt":
     import _locale
     _locale._gdl_bak = _locale._getdefaultlocale
     print(_locale._gdl_bak)
