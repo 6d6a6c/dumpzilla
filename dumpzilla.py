@@ -660,21 +660,21 @@ class Dumpzilla():
        _extraction_list = []
        for row in cursor:
           _extraction_dict = {}
-          _extraction_dict['0-Domain'] = ''
-          _extraction_dict['1-Host'] = self.decode_reg(row[3])
-          _extraction_dict['2-Name'] = self.decode_reg(row[1])
-          _extraction_dict['3-Value'] = self.decode_reg(row[2])
-          _extraction_dict['4-Path'] = self.decode_reg(row[4])
-          _extraction_dict['5-Expiry'] = self.decode_reg(row[5])
-          _extraction_dict['6-Last Access'] = self.decode_reg(row[6])
-          _extraction_dict['7-Creation Time'] = self.decode_reg(row[7])
+          _extraction_dict['0-Domain'] = ' deprecated '  #self.decode_reg(row[0])
+          _extraction_dict['1-Host'] = self.decode_reg(row[2])
+          _extraction_dict['2-Name'] = self.decode_reg(row[0])
+          _extraction_dict['3-Value'] = self.decode_reg(row[1])
+          _extraction_dict['4-Path'] = self.decode_reg(row[3])
+          _extraction_dict['5-Expiry'] = self.decode_reg(row[4])
+          _extraction_dict['6-Last Access'] = self.decode_reg(row[5])
+          _extraction_dict['7-Creation Time'] = ' --- ' #self.decode_reg(row[7])
 
-          if self.decode_reg(row[8]) == 0:
+          if self.decode_reg(row[6]) == 0:
              _extraction_dict['8-Secure'] =  'No'
           else:
              _extraction_dict['8-Secure'] =  'Yes'
 
-          if self.decode_reg(row[9]) == 0:
+          if self.decode_reg(row[7]) == 0:
              _extraction_dict['9-HttpOnly'] =  'No'
           else:
              _extraction_dict['9-HttpOnly'] =  'Yes'
