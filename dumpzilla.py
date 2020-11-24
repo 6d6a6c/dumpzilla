@@ -2687,14 +2687,14 @@ Profile location:
 
 
 import _locale
+_locale._gdl_bak = _locale._getdefaultlocale()
+print(_locale._gdl_bak)
+_locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak[0], 'utf8'))
+
 if __name__ == '__main__':
-    _locale._gdl_bak = _locale._getdefaultlocale
-    print(_locale._gdl_bak)
-    _locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
     app = Dumpzilla(sys.argv)
-    if os.name == "nt":
-         _locale._getdefaultlocale = _locale._gdl_bak
-    #_locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
+
+_locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak[0], _locale._gdl_bak[1]))
 
 # Site: www.dumpzilla.org
 # Authors: Busindre ( busilezas[@]gmail.com )
