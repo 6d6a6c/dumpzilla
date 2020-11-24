@@ -335,10 +335,13 @@ class Dumpzilla():
 
     def getJSON(self, file):
         try:
+          print("Decompressing ")
           decompress = self.decompressLZ4(file)
           if decompress is None:
+            print("Loading uncompressed ")
             return json.loads(file.read())
           else:
+            print("Loading compressed ")
             return json.loads(decompress)
 
         except UnicodeDecodeError:
@@ -399,6 +402,7 @@ class Dumpzilla():
           if path.isfile(bbdd) == True:
              if a.endswith(".json") == True:
                 # JSON
+                print("Loading data from "+bbdd)
                 f = open(bbdd)
                 jdata = self.getJSON(f)
                 f.close()
