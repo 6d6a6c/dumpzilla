@@ -2689,10 +2689,11 @@ if __name__ == '__main__':
     if os.name == "nt":
         import _locale
         _locale._gdl_bak = _locale._getdefaultlocale
+        print(_locale._gdl_bak)
         _locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
     app = Dumpzilla(sys.argv)
     if os.name == "nt":
-    import _locale
+        import _locale
         _locale._getdefaultlocale = _locale._gdl_bak
         #_locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'utf8'))
 
